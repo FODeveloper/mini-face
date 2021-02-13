@@ -6,13 +6,13 @@ from cameraapp.models import Camera
 
 
 class Snapshot(models.Model):
-    path = models.CharField(max_length=255)
+    path = models.CharField(max_length=255, unique=True)
     snaphot_time = models.DateTimeField(auto_now=True)
     camera = models.ForeignKey(Camera, on_delete=models.PROTECT)
 
     def __str__(self):
         return f'Snapshot at {self.snaphot_time} on camera: {self.camera}'
-    
+
 
 
 class DetectedPerson(models.Model):
