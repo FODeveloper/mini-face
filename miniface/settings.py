@@ -25,7 +25,7 @@ SECRET_KEY = ')@ya6i9+gzekjpl_z6=4t+w)#=swymi+ottu7#z0drq)c+zlzk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
-
+    'corsheaders',
     'alertapp',
     'personapp',
     'cameraapp',
@@ -54,9 +54,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 ROOT_URLCONF = 'miniface.urls'
+
+IMAGES_ROOT = os.path.join(os.getcwd(), 'images')
+
 
 TEMPLATES = [
     {

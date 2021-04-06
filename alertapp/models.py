@@ -16,12 +16,6 @@ class Snapshot(models.Model):
 
 
 class DetectedPerson(models.Model):
-    EVENTS = (
-        ("Not Authorized", "Not Authorized"),
-        ("Authorized", "Authorized")
-    )
-    permission = models.CharField(max_length=50, choices=EVENTS)
-
     bb_tlx = models.IntegerField()
     bb_tly = models.IntegerField()
     bb_brx = models.IntegerField()
